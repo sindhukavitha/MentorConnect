@@ -1,5 +1,5 @@
 import React from 'react';
-import home from '../assetes/home1.jpg'; // Correct path based on your folder structure
+import home from '../assets/home1.jpg'; // Correct path based on your folder structure
 
 const Home = () => {
   return (
