@@ -1,0 +1,49 @@
+/* Navbar Styling */
+.navbar {
+    background-color: #f8f9fa !important; 
+    height: 100px; /* Set the navbar height to 80px, adjust as needed */
+    display: flex;
+    align-items: center; /* Vertically centers the navbar content */
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff !important; /* Blue color for branding */
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 1.1rem;
+    margin-right: 15px;
+    color: #333 !important; /* Dark text color for nav links */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #007bff !important; /* Blue on hover */
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      text-align: center;
+    }
+  }
+  
+  /* Home Page Styling */
+  .home-container {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .home-container h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .home-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: for rounded corners */
+    margin-top: 20px;
+  }
+  
