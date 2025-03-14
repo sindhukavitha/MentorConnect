@@ -1,3 +1,11 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
 /* Mentor Form Styling */
 .mentor-form-container {
   max-width: 500px;
@@ -49,6 +57,36 @@
   background-color: #0056b3;
 }
 
+/* Mentor List Styling */
+.mentor-list-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mentor-list-container h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.mentor-list-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.mentor-list-container ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.mentor-list-container ul li:last-child {
+  border-bottom: none;
+}
+
 /* Checkbox Styling */
 .mentor-form-container .checkbox-group {
   display: flex;
@@ -62,42 +100,31 @@
   gap: 5px;
 }
 
-/* Responsive Styling */
-@media (max-width: 768px) {
-  .mentor-form-container {
-    width: 90%;
-  }
-}
-
 /* Navbar Styling */
 .navbar {
   background-color: #f8f9fa !important; 
-  height: 100px; /* Set the navbar height */
+  height: 80px;
   display: flex;
-  align-items: center; /* Vertically centers the navbar content */
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #007bff !important; /* Blue color for branding */
+  color: #007bff !important;
 }
 
 .navbar-nav .nav-link {
   font-size: 1.1rem;
   margin-right: 15px;
-  color: #333 !important; /* Dark text color for nav links */
+  color: #333 !important;
+  transition: color 0.3s ease-in-out;
 }
 
 .navbar-nav .nav-link:hover {
-  color: #007bff !important; /* Blue on hover */
-}
-
-/* Responsive Navbar */
-@media (max-width: 768px) {
-  .navbar-nav {
-    text-align: center;
-  }
+  color: #007bff !important;
 }
 
 /* Home Page Styling */
@@ -107,9 +134,9 @@
   background-image: url('../src/assets/home1.jpg');
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Keeps the background fixed while scrolling */
+  background-attachment: fixed;
   background-size: cover;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -118,5 +145,32 @@
 
 /* Ensure the img tag doesn't interfere */
 .home-container img {
-  display: none; /* Hide the img tag if using background */
+  display: none;
+}
+
+/* Mentor Section Layout */
+.mentor-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .mentor-form-container,
+  .mentor-list-container {
+    max-width: 100%;
+    margin: 20px;
+  }
+
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .mentor-section {
+    flex-direction: column;
+    align-items: center;
+  }
 }

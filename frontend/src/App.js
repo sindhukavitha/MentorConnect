@@ -1,25 +1,22 @@
-import React from "react";
-import LandingPage from "./components/LandingPage"; // Ensure correct path
-import Front from "./components/front"; // Correct import case
-import MentorForm from "./components/MentorForm"; // Ensure this file exists
-import MentorList from "./components/MentorList"; // Ensure this file exists
-import { CalendarDemo } from "./components/CalendarDemo"; // Ensure this file exists
-import "bootstrap/dist/css/bootstrap.min.css";
-import "react-day-picker/dist/style.css";
-import "./styles.css"; // Import custom CSS
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import MentorPage from "./components/MentorPage";
+import CalendarPage from "./components/CalendarPage";
+import Login from "./components/Login";
+import Signup from "./components/Signup";  // Import Signup Page
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <LandingPage />
-      <Front />
-      <h1 className="text-center mt-4">Mentor Availability System</h1>
-      <MentorForm />
-      <MentorList />
-      <CalendarDemo /> {/* Included Calendar Component */}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/mentor" element={<MentorPage />} />
+        <Route path="/booking" element={<CalendarPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} /> {/* Signup Route */}
+      </Routes>
+    </Router>
   );
-};
+}
 
 export default App;
-
