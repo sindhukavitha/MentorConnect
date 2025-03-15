@@ -1,15 +1,46 @@
-/* General Styling */
-body {
-  font-family: Arial, sans-serif;
+/* Prevent scrolling */
+body, html {
   margin: 0;
   padding: 0;
+  overflow: hidden; /* Disable scrolling */
+  height: 100vh; /* Full viewport height */
+  font-family: Arial, sans-serif;
   background-color: #f4f4f4;
 }
 
-/* Mentor Form Styling */
+/* Mentor List Container */
+.mentor-list-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+li {
+  background: white;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 .mentor-form-container {
   max-width: 500px;
-  margin: 50px auto;
+  margin: 0px auto;
   padding: 20px;
   background: #f8f9fa;
   border-radius: 8px;
@@ -55,36 +86,6 @@ body {
 
 .mentor-form-container button:hover {
   background-color: #0056b3;
-}
-
-/* Mentor List Styling */
-.mentor-list-container {
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.mentor-list-container h2 {
-  text-align: center;
-  color: #007bff;
-  margin-bottom: 20px;
-}
-
-.mentor-list-container ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.mentor-list-container ul li {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.mentor-list-container ul li:last-child {
-  border-bottom: none;
 }
 
 /* Checkbox Styling */
@@ -141,12 +142,27 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column; /* Ensure button aligns properly */
 }
 
-/* Ensure the img tag doesn't interfere */
-.home-container img {
-  display: none;
+/* Centering Button */
+.home-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
+
+.home-container button:hover {
+  background-color: #0056b3;
+}
+
 
 /* Mentor Section Layout */
 .mentor-section {
@@ -157,6 +173,110 @@ body {
   flex-wrap: wrap;
 }
 
+/* Login Form Styling */
+.login-container {
+  width: 350px;
+  margin: auto;
+  text-align: left;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.role-selector {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.role-selector span {
+  cursor: pointer;
+  padding-bottom: 5px;
+  position: relative;
+  color: #666;
+}
+
+.role-selector span.active {
+  font-weight: bold;
+  color: #000;
+}
+
+.role-selector span.active::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: #008080;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #008080;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.or-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.or-divider span {
+  flex: 1;
+  height: 1px;
+  background: #ccc;
+  margin: 0 10px;
+}
+
+.google-login {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-login img {
+  width: 18px;
+  margin-right: 8px;
+}
+
+.links {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.links a {
+  color: #008080;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 /* Responsive Styling */
 @media (max-width: 768px) {
   .mentor-form-container,
@@ -164,13 +284,136 @@ body {
     max-width: 100%;
     margin: 20px;
   }
-
   .navbar-nav {
     text-align: center;
   }
-
   .mentor-section {
     flex-direction: column;
     align-items: center;
+  }
+}
+.mentor-mentee-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.mentor-card, .mentee-card {
+  border: 2px solid rgb(25, 25, 23);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  position: relative; /* Ensures text stays inside */
+  background-size: cover; 
+  background-position: center; 
+  height: 250px; /* Increased height */
+  width: 220px;
+}
+
+.mentor-card {
+  background-image: url("./assets/mentor.jpg");
+}
+
+.mentee-card {
+  background-image: url("./assets/mentee.jpg");
+}
+
+.mentor-card:hover, .mentee-card:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Center the text inside the card */
+.card-title {
+  font-size: 25px;
+  color: white;
+  text-align: center;
+  margin: 0;
+  position: absolute; /* Keeps text at a fixed position */
+  bottom: 10px; /* Moves text towards the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.5); /* Adds a slight dark background */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.card-title:hover {
+  color: #EBEF95;
+}
+/* Centering the login form */
+.login-container {
+  width: 350px;
+  margin: 100px auto;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  text-align: center;
+  color: white;
+}
+
+/* Style for form labels */
+.login-container label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+/* Style for input fields */
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Placeholder color */
+.login-container input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Input focus effect */
+.login-container input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid white;
+}
+
+/* Style for login button */
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background: #2fc817;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Button hover effect */
+.login-container button:hover {
+  background: #1b82c7;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 400px) {
+  .login-container {
+    width: 90%;
+    padding: 30px;
   }
 }

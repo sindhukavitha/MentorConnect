@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 // Connect to MongoDB
 mongoose
-  .connect(MONGO_URI)
+  .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB connected successfully"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
@@ -21,18 +21,18 @@ mongoose
 const mentorSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  specification: { type: String, required: true }, // New Field
-  availableDays: [{ type: String }], // e.g., ["Monday", "Wednesday"]
-  availableTime: { type: String }, // e.g., "10:00 AM - 4:00 PM"
+  specification: { type: String, required: true },
+  experience: { type: Number, required: true },
+  calendlyUrl: { type: String },
+  availableTime: { type: String },
 });
 
 const Mentor = mongoose.model("Mentor", mentorSchema);
 
 // Route to add mentor availability
 app.post("/addMentor", async (req, res) => {
-  const { name, email, specification, availableDays, availableTime } = req.body;
   try {
-    const newMentor = new Mentor({ name, email, specification, availableDays, availableTime });
+    const newMentor = new Mentor(req.body);
     await newMentor.save();
     res.json({ message: "Mentor availability added successfully", mentor: newMentor });
   } catch (err) {
